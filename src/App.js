@@ -16,8 +16,11 @@ function App() {
     special_defense: '',
     speed: '',
     type: '',
-    type2: '',
+    ability: '',
+    ability2: '',
   })
+
+  
 
   const searchPokemon = () => {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response) => {
@@ -33,6 +36,8 @@ function App() {
         special_defense: response.data.stats[4].base_stat,
         speed: response.data.stats[5].base_stat,
         type: response.data.types[0].type.name,
+        ability: response.data.abilities[0].ability.name,
+        // ability2: response.data.abilities[1].ability.name,
       })
       setPokemonChosen(true)
     })
@@ -56,6 +61,7 @@ function App() {
         <img src={pokemon.img2} />
         </div>
           <h3>Type: {pokemon.type}</h3>
+          <h3>Abilities: {pokemon.ability}</h3>
           <h4>HP: {pokemon.hp}</h4>
           <h4>Attack: {pokemon.attack}</h4>
           <h4>Defense: {pokemon.defense}</h4>
@@ -64,7 +70,9 @@ function App() {
           <h4>Speed: {pokemon.speed}</h4>
         </>
         )}
+       
       </div>
+      
     </div>
   )
 }

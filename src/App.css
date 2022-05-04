@@ -65,3 +65,12 @@ body {
 .Display img {
   width: 200px;
 }
+
+.Display button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 195, 255, 0.873);
+  background-color: rgb(13, 124, 168);
+  color: white;
+}

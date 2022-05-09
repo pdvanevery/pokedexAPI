@@ -20,8 +20,8 @@ function App() {
     ability2: '',
   })
 
-  
 
+  //Seaches the API for Pokemon info
   const searchPokemon = () => {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response) => {
       setPokemon({
@@ -43,7 +43,7 @@ function App() {
     })
   }
 
-  
+//Displays Pokemon Info  
   return (
     <div className='App'>
       <div className='Title'>

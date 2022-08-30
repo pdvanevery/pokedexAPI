@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import Axios from 'axios'
 
+
 function App() {
   const [pokemonName, setPokemonName] = useState('')
   const [pokemonChosen, setPokemonChosen] = useState(false)
@@ -20,8 +21,8 @@ function App() {
     ability2: '',
   })
 
-  
 
+  //Seaches the API for Pokemon info
   const searchPokemon = () => {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response) => {
       setPokemon({
@@ -43,22 +44,24 @@ function App() {
     })
   }
 
-  
+
+
+//Displays Pokemon Info  
   return (
     <div className='App'>
       <div className='Title'>
-        <h1>Pokemon Stats</h1>
+        <h1>Pokedex API</h1>
         <input type='text' onChange={(event) => {setPokemonName(event.target.value)}} />
         <button onClick={searchPokemon}>Search Pokemon</button>
       </div>
       <div className='Display'>
         {!pokemonChosen ? (
-        <h1> Please choose a Pokemon</h1>) : (
+        <h1>Type a Pokemon's name in lowercase</h1>) : (
         <>
         <h1>{pokemon.species}</h1>
         <div className='PokemonImage'>
-        <img src={pokemon.img} />
-        <img src={pokemon.img2} />
+        <img src={pokemon.img} alt="regular" />
+        <img src={pokemon.img2} alt="shiny"/>
         </div>
           <h3>Type: {pokemon.type}</h3>
           <h3>Abilities: {pokemon.ability}</h3>
